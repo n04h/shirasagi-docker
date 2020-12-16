@@ -1,0 +1,2 @@
+# shirasagi-docker
+CMSであるSHIRASAGIのDocker環境テンプレート
