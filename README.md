@@ -5,6 +5,7 @@ CMSであるSHIRASAGIのDocker環境テンプレート
 ```shell
 docker-compose build
 docker-compose up
+docker-compose exec mongodb bash
 rake db:drop
 rake db:create_indexes
 rake ss:create_site data='{ name: "デモ", host: "demo", domains: "localhost:3000" }'
