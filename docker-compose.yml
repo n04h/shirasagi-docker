@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  rails:
+    container_name: rails
+    hostname: rails
+    build: ./
+    command: bundle exec rails s -b 0.0.0.0
+    environment:
+      RAILS_ENV: development
+    volumes:
+      - ./:/app
+    depends_on:
+      - mongodb
+    ports:
+      - 3000:3000
+
+  mongodb:
+    container_name: mongodb
+    hostname: mongodb
+    image: mongo:3.4.24
+    environment:
+      MONGO_DATA_DIR: /data/db
+      MONGO_LOG_DIR: /dev/null
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
